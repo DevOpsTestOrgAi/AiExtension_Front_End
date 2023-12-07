@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+
+
+@font-face{
+  font-family: Mont;
+  src: url(./assets/fonts/Montserrat-Regular.ttf);
+}
+
+.Mont{
+  font-family: Mont;
+}
+
+
+@font-face{
+  font-family: MontM;
+  src: url(./assets/fonts/Montserrat-Medium.ttf);
+}
+
+.MontM{
+  font-family: MontM;
+}
+
+@font-face{
+  font-family: MontB;
+  src: url(./assets/fonts/Montserrat-SemiBold.ttf);
+}
+
+.MontB{
+  font-family: MontB;
+}
