@@ -1,6 +1,5 @@
-import React from 'react';
-import card from '../images/card.png';
-import product from '../images/product.jpg';
+import React, { useEffect } from 'react';
+import card from '../images/cardV2.png';
 import '../App.css';
 
 
@@ -22,11 +21,12 @@ const formatProductName = (productName) => {
 };
 
 const Card = ({ product }) => {
-  const { title, productPrice, url } = product;
+  const { title, price, imageUrl, productUrl } = product;
 
   const handleMoreDetailsClick = () => {
-    window.location.href = `${url}`;
+    chrome.tabs.update({ url: productUrl });
   };
+  
 
   return (
     <div style={{ marginBottom: '10px', position: 'relative', textAlign: 'right' }}>
@@ -36,7 +36,7 @@ const Card = ({ product }) => {
 
         <div style={{ borderRadius: '25px', overflow: 'hidden' }}>
           <img
-            src={url}
+            src={imageUrl}
             alt="product"
             style={{ height: '115px', width: '115px', marginRight: '10px', borderRadius: '25px' }}
             draggable={false}
@@ -45,7 +45,7 @@ const Card = ({ product }) => {
 
         <div style={{ backgroundColor: "", width: "160px" }}>
           {formatProductName(title)}
-          <p className='MontB' style={{ fontSize: '20px', color: '#000', margin: '0px 0px 7px 0px', fontWeight: 'bold' }}>120 Dhs</p>
+          <p className='MontB' style={{ fontSize: '20px', color: '#000', margin: '0px 0px 7px 0px', fontWeight: 'bold' }}>{price}</p>
           <button className='MoreBtn MontB' onClick={handleMoreDetailsClick}>
             More Details
             <span style={{ width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderLeft: '8px solid white', marginRight: '5px', }} />
