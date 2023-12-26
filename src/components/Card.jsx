@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import card from '../images/cardV2.png';
 import '../App.css';
-
 
 const formatProductName = (productName) => {
   const paragraphStyle = {
@@ -20,13 +19,16 @@ const formatProductName = (productName) => {
   );
 };
 
-const Card = ({ product }) => {
+const Card = ({ product, setLoading }) => {
   const { title, price, imageUrl, productUrl } = product;
 
   const handleMoreDetailsClick = () => {
+    // Set loading to true before initiating the fetch
+    setLoading(true);
+
+    // Trigger fetch for more details or open in a new tab
     chrome.tabs.update({ url: productUrl });
   };
-  
 
   return (
     <div style={{ marginBottom: '10px', position: 'relative', textAlign: 'right' }}>
@@ -59,11 +61,10 @@ const Card = ({ product }) => {
 export default Card;
 
 
-
-// import React from 'react';
-// import card from '../images/card.png';
-// import product from '../images/product.jpg';
+// import React, { useEffect } from 'react';
+// import card from '../images/cardV2.png';
 // import '../App.css';
+
 
 // const formatProductName = (productName) => {
 //   const paragraphStyle = {
@@ -82,9 +83,13 @@ export default Card;
 //   );
 // };
 
-// const Card = () => {
-//   const productName = 'Anycast M2 2CORE Very Long Product Name';
-//   const productPrice = '120 Dhs';
+// const Card = ({ product }) => {
+//   const { title, price, imageUrl, productUrl } = product;
+
+//   const handleMoreDetailsClick = () => {
+//     chrome.tabs.update({ url: productUrl });
+//   };
+  
 
 //   return (
 //     <div style={{ marginBottom: '10px', position: 'relative', textAlign: 'right' }}>
@@ -94,7 +99,7 @@ export default Card;
 
 //         <div style={{ borderRadius: '25px', overflow: 'hidden' }}>
 //           <img
-//             src={product}
+//             src={imageUrl}
 //             alt="product"
 //             style={{ height: '115px', width: '115px', marginRight: '10px', borderRadius: '25px' }}
 //             draggable={false}
@@ -102,10 +107,9 @@ export default Card;
 //         </div>
 
 //         <div style={{ backgroundColor: "", width: "160px" }}>
-//           {formatProductName(productName)}
-//           <p className='MontB' style={{ fontSize: '20px', color: '#000', margin: '0px 0px 7px 0px', fontWeight: 'bold' }}>{productPrice}</p>
-
-//           <button className='MoreBtn MontB'>
+//           {formatProductName(title)}
+//           <p className='MontB' style={{ fontSize: '20px', color: '#000', margin: '0px 0px 7px 0px', fontWeight: 'bold' }}>{price}</p>
+//           <button className='MoreBtn MontB' onClick={handleMoreDetailsClick}>
 //             More Details
 //             <span style={{ width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderLeft: '8px solid white', marginRight: '5px', }} />
 //           </button>
@@ -116,3 +120,5 @@ export default Card;
 // };
 
 // export default Card;
+
+

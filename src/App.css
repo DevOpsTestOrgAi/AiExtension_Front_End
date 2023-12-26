@@ -29,7 +29,7 @@ body {
   font-family: 'MontB', sans-serif; /* Specify the MontM font */
   /* border-radius: 4px; */
   cursor: pointer;
-  padding-right: 60px; /* Make space for the custom arrow */
+  padding-right: 30px; /* Make space for the custom arrow */
 }
 
 
